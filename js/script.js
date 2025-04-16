@@ -8,7 +8,7 @@ const originalTexts = Array.from(h2Elements).map(el => el.innerHTML);
 h2Elements.forEach(el => el.innerHTML = '');
 
 // Função do efeito typewriter
-function typeWriterWithHTML(element, html, speed = 30, callback = null) {
+function typeWriterWithHTML(element, html, speed = 5, callback = null) {
     let i = 0;
     let tempHTML = '';
     let inTag = false;
