@@ -47,3 +47,34 @@ if (toggle && nav) {
         nav.classList.toggle('active');
     });
 }
+
+const carrosel = document.getElementById("carrosel");
+  const slides = document.querySelectorAll(".slide");
+  const btnPrev = document.getElementById("btnPrev");
+  const btnNext = document.getElementById("btnNext");
+
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+
+  function goToSlide(index) {
+    const slideWidth = slides[0].clientWidth;
+    carrosel.scrollTo({
+      left: index * slideWidth,
+      behavior: "smooth"
+    });
+  }
+
+  btnPrev.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    goToSlide(currentIndex);
+  });
+
+  btnNext.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    goToSlide(currentIndex);
+  });
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    goToSlide(currentIndex);
+  }, 10000);
