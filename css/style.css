@@ -16,7 +16,6 @@ header{
 .Bar{    /*class referente a toda a barra de navegação*/
   position: relative;
   border-bottom: 1px solid rgba(14, 13, 13, 0.2);
-  max-width: 1560px;
   margin: 0 auto;
   width: 100%;
   display: flex;
@@ -46,11 +45,12 @@ header{
 
 #cargo{
     font-size: clamp(22px, 2.5vw, 70px);
+    text-align: center;
 
 }
 
 main{
-    max-width: 1520px;
+    max-width: 1522px;
     width: 100%;
     margin: 0 auto;
 }
@@ -158,8 +158,127 @@ body{
   .NavBar {
     display: flex;
   }
+
+  .pag2{
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    height: 800px;
+    justify-items: center; /*alinha o quadrado na horizontal*/
+    display: flex;
+    align-items: center; /* alinha os itens na vertical */
+    background-color: #252A4A;
+  }
+
+  .quadrado{
+    width: 95%;
+    border: radius 10px; ;
+    height: 95%;
+    display: flex;
+    
+  }
+
+  .carrosel{
+    width:100%;
+    height: 100%;
+  }
+
+  .links{
+    width:100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+  }
+
+  .carrosel-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
   
-  /* Ocultar menu em mobile */
+  .carrosel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    width: 88%;
+    height: 90%;
+    scrollbar-width: none;
+    position: relative; /* permite posicionar os botões internamente */
+    border-radius: 10px;
+
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+transform: translateY(0px);
+  }
+
+  .carrosel:hover {
+    transform: translateY(-3px); /* eleva um pouquinho */
+    box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.25);}
+  
+  .carrosel::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    
+  }
+  
+  .slide1 {
+     background-color: #c3d8d6; 
+     flex-direction: column;
+     text-align: center;
+  }
+  .slide2 {
+     background-color:#1976D2;
+     flex-direction: column;
+     text-align: center;
+     }
+  .slide3 {
+     background-color:#512DA8;
+     flex-direction: column;
+     text-align: center;
+     }
+  
+  .btn {
+    position: absolute;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 18px;
+    border-radius: 5px;
+  }
+  
+  .prev { left: 1px; }
+  .next { right: 1px; }
+  
+  .tituloslide{
+    font-size: 4.2vw;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .listaslide{
+    font-size: 2vw;
+    color: #000000;
+    margin: 10px 0;
+    text-align: justify;
+    width: 480px;
+  }
+  
+  /* menu em mobile */
   @media (max-width: 768px) {
     .Bar {
       flex-wrap: wrap;
@@ -235,7 +354,30 @@ body{
   .quadrado{
     flex-direction: column; /* empilha verticalmente */
     align-items: center; /* opcional, centraliza na vertical */
+    height: 700px;;
   }
+
+  .links{
+    width:100%;
+    height: 100%;
+    background-color: rgb(255, 174, 0);
+  }
+
+  .tituloslide{
+    font-size: 21px;
+  }
+
+
+  .listaslide{
+    font-size: 3.5vw;
+    margin: 0;
+    width: 250px;
+  
+  }
+
+  .slide1{text-align: center;}
+  .slide2{text-align: center;}
+  .slide3{text-align: center;}
  
   }
 
@@ -257,93 +399,14 @@ body{
       align-items: center; /* opcional, centraliza na vertical */
     }
 
-  }
+    .tituloslide{
+      font-size: 5.5vw;
+    }
+  
+  
+    .listaslide{
+      font-size: 2.8vw;
+      margin: 0;
+    }
 
-  .pag2{
-    width: 100%;
-    align-items: center;
-    justify-content: space-around;
-    position: relative;
-    height: 800px;
-    justify-items: center; /*alinha o quadrado na horizontal*/
-    display: flex;
-    align-items: center; /* alinha os itens na vertical */
   }
-
-  .quadrado{
-    width: 95%;
-    height: 95%;
-    display: flex;
-    border: #0f0c0c solid 2px;
-  }
-
-  .carrosel{
-    width:100%;
-    height: 100%;
-    background-color: rgb(46, 184, 30);
-  }
-
-  .links{
-    width:100%;
-    height: 100%;
-    background-color: rgb(255, 174, 0);
-  }
-
-  .carrosel-container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: deeppink;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-  }
-  
-  .carrosel {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    width: 80%;
-    height: 80%;
-    scrollbar-width: none;
-    position: relative; /* permite posicionar os botões internamente */
-  }
-  
-  .carrosel::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .slide {
-    flex: 0 0 100%;
-    scroll-snap-align: start;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    font-weight: bold;
-    color: white;
-  }
-  
-  .slide1 { background-color: crimson; }
-  .slide2 { background-color: teal; }
-  .slide3 { background-color: darkslateblue; }
-  
-  .btn {
-    position: absolute;
-    top: 23%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 18px;
-    border-radius: 5px;
-  }
-  
-  .prev { left: 10px; }
-  .next { right: 10px; }
-  

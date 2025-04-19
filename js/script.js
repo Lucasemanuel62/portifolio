@@ -49,32 +49,49 @@ if (toggle && nav) {
 }
 
 const carrosel = document.getElementById("carrosel");
-  const slides = document.querySelectorAll(".slide");
-  const btnPrev = document.getElementById("btnPrev");
-  const btnNext = document.getElementById("btnNext");
+const slides = document.querySelectorAll(".slide");
+const btnPrev = document.getElementById("btnPrev");
+const btnNext = document.getElementById("btnNext");
 
-  let currentIndex = 0;
-  const totalSlides = slides.length;
+let currentIndex = 0;
+const totalSlides = slides.length;
 
-  function goToSlide(index) {
-    const slideWidth = slides[0].clientWidth;
-    carrosel.scrollTo({
-      left: index * slideWidth,
-      behavior: "smooth"
-    });
+function goToSlide(index, smooth = true) {
+  const slideWidth = slides[0].clientWidth;
+
+  // remove scroll-smooth do CSS temporariamente
+  if (!smooth) {
+    carrosel.style.scrollBehavior = "auto";
+  } else {
+    carrosel.style.scrollBehavior = "smooth";
   }
 
-  btnPrev.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    goToSlide(currentIndex);
+  carrosel.scrollTo({
+    left: index * slideWidth
   });
 
-  btnNext.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    goToSlide(currentIndex);
-  });
+  currentIndex = index;
+}
 
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    goToSlide(currentIndex);
-  }, 10000);
+btnPrev.addEventListener("click", () => {
+  if (currentIndex === 0) {
+    goToSlide(totalSlides - 1, false); // pulo direto
+  } else {
+    goToSlide(currentIndex - 1);
+  }
+});
+
+btnNext.addEventListener("click", () => {
+  if (currentIndex === totalSlides - 1) {
+    goToSlide(0, false); // pulo direto
+  } else {
+    goToSlide(currentIndex + 1);
+  }
+});
+
+// Intervalo automático (mantém suave)
+setInterval(() => {
+  let nextIndex = (currentIndex + 1) % totalSlides;
+  goToSlide(nextIndex);
+}, 90000);
+
