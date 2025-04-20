@@ -161,14 +161,13 @@ body{
 
   .pag2{
     width: 100%;
-    align-items: center;
     justify-content: space-around;
     position: relative;
     height: 800px;
     justify-items: center; /*alinha o quadrado na horizontal*/
     display: flex;
     align-items: center; /* alinha os itens na vertical */
-    background-color: #252A4A;
+    background-color: #131936;
   }
 
   .quadrado{
@@ -187,7 +186,27 @@ body{
   .links{
     width:100%;
     height: 100%;
-    background-color: rgb(0, 0, 0);
+    background-image:url('../img/fundolink.jpg');
+    background-position: center;  
+    overflow: hidden;
+    background-size: cover;
+    border-radius: 5px; 
+    align-items: center;/*alinha horizintalmente*/
+    justify-content: center; /*alinha verticalmente*/
+    display: flex;
+  }
+
+  .conteudo{
+    text-align: center;
+    width: 84%;
+    height: 84%;
+    background-color: rgba(5, 5, 5, 0.608); /* preto com 50% de transparência */
+    padding: 20px;
+    border-radius: 10px;
+    color: white; /* exemplo para contraste */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
 
   .carrosel-container {
@@ -228,22 +247,18 @@ transform: translateY(0px);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    
+    background-color: #0c98de0c;
   }
   
   .slide1 {
-     background-color: #c3d8d6; 
      flex-direction: column;
      text-align: center;
   }
   .slide2 {
-     background-color:#1976D2;
      flex-direction: column;
      text-align: center;
      }
   .slide3 {
-     background-color:#512DA8;
      flex-direction: column;
      text-align: center;
      }
@@ -265,18 +280,49 @@ transform: translateY(0px);
   .next { right: 1px; }
   
   .tituloslide{
-    font-size: 4.2vw;
-    color: #333;
+    font-size: 3.2vw;
+    color: #ffffff;
     margin-bottom: 20px;
   }
 
   .listaslide{
-    font-size: 2vw;
-    color: #000000;
+    font-size: 1.4vw;
+    color: #ffffff;
     margin: 10px 0;
     text-align: justify;
     width: 480px;
   }
+
+  .listalink {
+    list-style: none;           /* remove os pontinhos da lista */
+    padding: 50px;
+    justify-content: center;   /* centraliza */
+    display: flex;
+    gap: 50px;
+    width: 100%;
+    flex-direction: column;
+    align-content: space-between;   /* ou center, se quiser centralizado */
+  }
+  
+  .listalink li a {
+    text-decoration: none;
+    color: white;                /* ou outra cor que combine com seu fundo */
+    font-weight: bold;
+    font-size: clamp(15px, 1.8vw, 60px);
+    padding: 8px 16px;
+    border-radius: 8px;
+    width: 100%;
+    transition: background 0.3s ease, color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1); /* leve fundo transparente */
+  }
+  
+  .listalink li a:hover {
+    background-color: white;
+    color: black;
+  }
+  
+
+ 
   
   /* menu em mobile */
   @media (max-width: 768px) {
@@ -354,7 +400,7 @@ transform: translateY(0px);
   .quadrado{
     flex-direction: column; /* empilha verticalmente */
     align-items: center; /* opcional, centraliza na vertical */
-    height: 700px;;
+    height: 720px;;
   }
 
   .links{
@@ -379,6 +425,25 @@ transform: translateY(0px);
   .slide2{text-align: center;}
   .slide3{text-align: center;}
  
+  .conteudo{
+    font-size: 4vw;
+    
+  }
+  .listalink{
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;      /* Muda para linha */
+    flex-wrap: wrap;          /* Permite quebra de linha */
+    justify-content: space-around; /* Distribui igualmente */
+    align-items: center;
+  }
+
+  .textolink{
+    padding-top: 10px;
+    padding-bottom: 12px;
+  }
+
   }
 
 
@@ -408,5 +473,15 @@ transform: translateY(0px);
       font-size: 2.8vw;
       margin: 0;
     }
+
+    .conteudo{
+      padding: 0;
+    }
+
+    .listalink{
+      display: flex;
+      gap: 15px;
+    }
+   
 
   }
