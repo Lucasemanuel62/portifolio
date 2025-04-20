@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
   
 }
 
@@ -93,9 +94,9 @@ main{
     gap: 30px; /* ajusta a distancia entre os botões da barra de navegação*/
 }
 .botao:hover {
-    background-color: #6a0dad;
+    background-color: #250dad;
     color: white;
-    box-shadow: 0 0 10px rgba(106, 13, 173, 0.5);
+    box-shadow: 0 0 10px rgba(40, 13, 173, 0.5);
 }
 
 #Minhafoto{
@@ -115,7 +116,7 @@ main{
 #entraremcontato{
     text-decoration: none;
     border-radius: 6px;
-    background:  #5b02ea;
+    background:  #350499;
     color: rgb(255, 255, 255);
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
@@ -200,7 +201,7 @@ body{
     text-align: center;
     width: 84%;
     height: 84%;
-    background-color: rgba(5, 5, 5, 0.608); /* preto com 50% de transparência */
+    background-color: rgba(5, 5, 5, 0.678); /* preto com 50% de transparência */
     padding: 20px;
     border-radius: 10px;
     color: white; /* exemplo para contraste */
@@ -289,6 +290,9 @@ body{
     font-size: 1.4vw;
     color: #ffffff;
     margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     text-align: justify;
     width: 480px;
   }
@@ -465,14 +469,14 @@ body{
   }
 
   .tituloslide{
-    font-size: 30px;
+    font-size: 1.6em;
   }
 
 
   .listaslide{
-    font-size: 3.8vw;
+    font-size: 0.9em;
     margin: 0;
-    width: 250px;
+    width: 238px;
   
   }
 
@@ -518,7 +522,7 @@ body{
     }
 
     .tituloslide{
-      font-size: 5.5vw;
+      font-size: 2em;
     }
   
   
@@ -543,8 +547,12 @@ body{
     .listalink{
       display: flex;
       flex-direction: row;
-      font-size: 1.4em;
-      gap: 15px;
+      font-size: 1.5em;
+      gap: 20px;
+      padding-bottom: 20px;
+      flex-wrap: wrap;          /* Permite quebra de linha */
+      justify-content: space-around; /* Distribui igualmente */
+      align-items: center;
     }
    
 
