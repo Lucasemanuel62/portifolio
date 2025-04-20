@@ -325,6 +325,58 @@ body{
     color: black;
   }
   
+  footer{
+    width: 100%;
+    height: 150px; /* Altura fixa (substitui o max-height) */
+    margin: 0 auto;
+    background-color: #000000;
+    text-align: center;
+    
+  }
+  
+  .footer-container {
+    max-width: 960px;
+    margin: 0 auto;
+    color: #ffffff;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    color: #fffbfb;
+  }
+  
+  .footer-links a {
+    color: #f8fafc;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #094a66; /* azul claro ao passar o mouse */
+  }
+  
+  .footer-info {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    color: #ffffff;
+  }
+  
+  .voltar-topo {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #f8fafc;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+  
+  .voltar-topo:hover {
+    color: #113646;
+    border-color: #43acda;
+  }
+  
+  
 
  
   

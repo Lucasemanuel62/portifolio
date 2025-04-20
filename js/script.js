@@ -95,3 +95,4 @@ setInterval(() => {
   goToSlide(nextIndex);
 }, 90000);
 
+document.getElementById("ano").textContent = new Date().getFullYear();
