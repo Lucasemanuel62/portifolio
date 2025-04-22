@@ -120,9 +120,14 @@ main{
     color: rgb(255, 255, 255);
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
-    font-size: 32px;
+    font-size: 2em;
     border: 1px black solid;
-    
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#entraremcontato:hover {
+  background-color: #3e1ebf;
+color: #ece6e6;
 }
 #divtexto{
     background: rgba(255, 255, 255, 0.1); /* Fundo transparente */
@@ -340,8 +345,9 @@ body{
   
   .footer-container {
     max-width: 960px;
-    margin: 0 auto;
+    margin:  auto;
     color: #ffffff;
+    padding-top: 15px;
   }
   
   .footer-links {
@@ -547,7 +553,7 @@ body{
     .listalink{
       display: flex;
       flex-direction: row;
-      font-size: 1.5em;
+      font-size: 1.4em;
       gap: 20px;
       padding-bottom: 20px;
       flex-wrap: wrap;          /* Permite quebra de linha */
