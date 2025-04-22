@@ -79,7 +79,7 @@ main{
 
 
 .botao{ /*class atribuida a todos botões da barra de navegação*/
-    font-size: clamp(20px, 1.8vw, 60px);
+    font-size: clamp(22px, 1.8vw, 60px);
     padding: 1px 4px;
     border: 2px solid #f5f2f7; /* Roxo escuro */
     border-radius: 8px;
@@ -299,7 +299,7 @@ body{
     flex-direction: column;
     gap: 15px;
     text-align: justify;
-    width: 480px;
+    width: 80%;
   }
 
   .listalink {
@@ -336,7 +336,7 @@ body{
   
   footer{
     width: 100%;
-    height: 150px; /* Altura fixa (substitui o max-height) */
+    height: 30%; /* Altura fixa (substitui o max-height) */
     margin: 0 auto;
     background-color: #000000;
     text-align: center;
@@ -413,10 +413,10 @@ body{
     .NavBar {
       display: flex;
       flex-direction:column;
-      background-color: #0e427e;
+      background-color: #fefefe;
       width: 100%;
       position: absolute;
-      top: 76px;
+      top: 80px;
       left: 0;
       z-index: 10;
       max-height: 0;
@@ -437,13 +437,13 @@ body{
       color: rgb(0, 0, 0);
       text-align: center;
       padding: 0.1rem;
-      border-bottom: 2px solid #0f0c0c;
-      background-color: #f8fafc;
+      border: 2px solid #0f0c0c;
+      background-color: #ffffff;
       font-weight: bold;
     }
 
     .botao:hover {
-      background-color: #333;
+      background-color: #223253;
     }
 
     .menu-toggle {
@@ -482,7 +482,6 @@ body{
   .listaslide{
     font-size: 0.9em;
     margin: 0;
-    width: 238px;
   
   }
 
@@ -506,6 +505,12 @@ body{
     padding-top: 10px;
     padding-bottom: 12px;
   }
+
+  .voltar-topo{
+  position: relative;
+  top: -15px;
+  }
+
 
   }
 
@@ -533,8 +538,7 @@ body{
   
   
     .listaslide{
-      font-size: 1.2em;
-      width: 390px;
+      font-size: 1.3em;
       margin: 0;
     }
 
