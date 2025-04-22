@@ -93,6 +93,6 @@ btnNext.addEventListener("click", () => {
 setInterval(() => {
   let nextIndex = (currentIndex + 1) % totalSlides;
   goToSlide(nextIndex);
-}, 12000);
+}, 15000);
 
 document.getElementById("ano").textContent = new Date().getFullYear();
