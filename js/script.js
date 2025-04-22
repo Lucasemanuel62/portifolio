@@ -89,10 +89,21 @@ btnNext.addEventListener("click", () => {
   }
 });
 
-// Intervalo automático (mantém suave)
-setInterval(() => {
-  let nextIndex = (currentIndex + 1) % totalSlides;
-  goToSlide(nextIndex);
-}, 15000);
+let intervalId;
 
-document.getElementById("ano").textContent = new Date().getFullYear();
+function startAutoSlide() {
+  intervalId = setInterval(() => {
+    let nextIndex = (currentIndex + 1) % totalSlides;
+    goToSlide(nextIndex);
+  }, 12000);
+}
+
+function stopAutoSlide() {
+  clearInterval(intervalId);
+}
+
+carrosel.addEventListener('mouseover', stopAutoSlide);
+carrosel.addEventListener('mouseout', startAutoSlide);
+
+// Inicia o carrossel automático
+startAutoSlide();
