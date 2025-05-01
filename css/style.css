@@ -318,9 +318,10 @@ body{
     color: white;  /* ou outra cor que combine com seu fundo */
     font-weight: bold;
     padding: 3px;
-    background-color: rgb(252, 149, 4); 
+    background-color: rgb(252, 116, 4); 
     border-radius: 5px;
     font-size: 1.6em;
+    border: none;
 
   }
 
