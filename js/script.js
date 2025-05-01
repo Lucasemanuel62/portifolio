@@ -95,7 +95,7 @@ function startAutoSlide() {
   intervalId = setInterval(() => {
     let nextIndex = (currentIndex + 1) % totalSlides;
     goToSlide(nextIndex);
-  }, 12000);
+  }, 16000);
 }
 
 function stopAutoSlide() {
@@ -107,3 +107,19 @@ carrosel.addEventListener('mouseout', startAutoSlide);
 
 // Inicia o carrossel automático
 startAutoSlide();
+
+
+// Parte do menu oculto
+
+let menuocuto = document.querySelector('.menu-ocuto');
+let maisinformacoes = document.getElementById("maisinformacoes");
+
+maisinformacoes.addEventListener("click", alternadisplay);
+
+function alternadisplay(){
+  
+  if( menuocuto.style.visibility === 'hidden' ||  menuocuto.style.visibility === ''){
+   menuocuto.style.visibility = 'visible';}
+   else{ menuocuto.style.visibility = 'hidden';}
+}
+

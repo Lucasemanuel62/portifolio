@@ -211,7 +211,8 @@ body{
     border-radius: 10px;
     color: white; /* exemplo para contraste */
     display: flex;
-    justify-content: center;
+    gap: 20px;
+    align-items: center;
     flex-direction: column;
   }
 
@@ -294,46 +295,83 @@ body{
   .listaslide{
     font-size: 1.4vw;
     color: #ffffff;
-    margin: 10px 0;
-    display: flex;
+    display: grid;
     flex-direction: column;
     gap: 15px;
     text-align: justify;
     width: 80%;
   }
 
-  .listalink {
-    list-style: none;/* remove os pontinhos da lista */
-    padding: 50px;
-    justify-content: center;/* centraliza */
+  .menu-ocuto{ /* se refere a UL */
     display: flex;
-    font-size: 1.8em;
-    gap: 50px;
-    width: 100%;
     flex-direction: column;
-    align-content: space-between;/* ou center, se quiser centralizado */
+    list-style: none;
+    gap: 10px;
+    visibility: hidden;  /* Oculta o menu no início */
+    transition: visibility 0.3s ease-in-out;
+    color: white;   
+
   }
 
+  #maisinformacoes{ /*botão*/
+    text-decoration: none;
+    color: white;  /* ou outra cor que combine com seu fundo */
+    font-weight: bold;
+    padding: 3px;
+    background-color: rgb(252, 149, 4); 
+    border-radius: 5px;
+    font-size: 1.6em;
+
+  }
+
+  .divmaisinformacoes{
+    width: 70%;
+    display: grid;
+  }
+  .listaocuta{ /* SE REFERE A CADA ELEMENTO LI */
+    text-decoration: none;
+    color: #fffbfb;
+    background-color:  #101212e0;
+    display: grid;
+    margin-top: 10px;
+    border-radius: 5px;
+
+  }
+
+  .listalink { /*psicoacess*/
+    border-radius: 5px;
+    justify-content: center;/* centraliza */
+    font-size: 1.8em;
+    background-color: rgba(3, 13, 87, 0.807);
+    display: grid; /*deixa o ponto dentro da div*/
+    width: 70%;
+  }
+
+  .listalink:hover {
+    transform: translateY(-3px); /* eleva um pouquinho */
+    box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.25);
+    background-color: #052387c5;
+  }
+
+  #maisinformacoes:hover {
+    transform: translateY(-3px); /* eleva um pouquinho */
+    box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.25);
+    background-color: rgb(252, 159, 30);
+  }
+    
+
   .textolink{
-    font-size: 1.1em;
+    font-size: 1.8em;
   }
   
   .listalink li a {
-    text-decoration: none;
     color: white;                /* ou outra cor que combine com seu fundo */
     font-weight: bold;
-    padding: 8px 16px;
     border-radius: 8px;
-    width: 100%;
-    transition: background 0.3s ease, color 0.3s ease;
-    background-color: rgba(255, 255, 255, 0.1); /* leve fundo transparente */
+    text-decoration: none;
   }
   
-  .listalink li a:hover {
-    background-color: white;
-    color: black;
-  }
-  
+
   footer{
     width: 100%;
     height: 30%; /* Altura fixa (substitui o max-height) */
@@ -490,10 +528,8 @@ body{
   .slide3{text-align: center;}
  
 
-  .listalink{
-    padding: 0;
-    display: flex;
-    font-size: 0.9em;
+  .listalink{ /*psicoacess*/
+    font-size: 1em;
     gap: 20px;
     flex-direction: row;      /* Muda para linha */
     flex-wrap: wrap;          /* Permite quebra de linha */
@@ -501,10 +537,17 @@ body{
     align-items: center;
   }
 
-  .textolink{
-    padding-top: 10px;
-    padding-bottom: 12px;
-  }
+.textolink{
+  font-size: 1em;
+}
+
+.menu-ocuto{
+  gap: 1px;
+}
+
+ #maisinformacoes{
+  font-size: 1em;
+ }
 
   .voltar-topo{
   position: relative;
