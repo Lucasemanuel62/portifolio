@@ -301,7 +301,21 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000000;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.slide:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .slide1 {
@@ -344,6 +358,13 @@ main {
   font-size: 3.2vw;
   color: #ffffff;
   margin-bottom: 20px;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .listaslide {
@@ -599,9 +620,14 @@ footer {
   }
 
   .carrosel {
-  width: 100%;
-  height: 85%;
-}
+    width: 100%;
+    height: 85%;
+  }
+
+  .slide {
+    padding: 30px 20px;
+    margin: 15px;
+  }
 
   .divlinks {
     width: 100%;
@@ -609,14 +635,15 @@ footer {
   }
 
   .tituloslide {
-    font-size: 1.6em;
+    font-size: 1.8em;
+    margin-bottom: 20px;
   }
 
-
   .listaslide {
-    font-size: 0.9em;
+    font-size: 1.1em;
     margin: 0;
-
+    line-height: 1.5;
+    gap: 15px;
   }
 
 
