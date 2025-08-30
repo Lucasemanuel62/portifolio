@@ -30,23 +30,20 @@
             <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu de navegação">☰</button>
             <div class="NavBar" id="nav">
                 <ul class="botaonav">
-                    <li class="limenu" ><a class="botao" href="">Início</a></li>
-                    <li class="limenu" ><a class="botao" href="#sobre">Sobre</a></li>
-                    <li class="limenu" ><a class="botao" href="https://lucasemanuel62.github.io/Psicoacess/" target="_blank">Projetos</a></li>
+                    <li class="limenu" ><a class="botao" href="#pag1">Início</a></li>
+                    <li class="limenu" ><a class="botao" href="#skills">Sobre</a></li>
+                    <li class="limenu" ><a class="botao" href="#tela3">Projetos</a></li>
                     <li class="limenu" ><a class="botao" href="https://wa.me/5581985169176" target="_blank">Contato</a></li>
                 </ul>
             </div>
         </nav>
     </header>
     <main>
-        <section class="pag1" aria-labelledby="textodeapresentacao">
+        <section class="pag1" id="#pag1" aria-labelledby="textodeapresentacao">
             <div id="textoefotopag1">
                 <div id="divtextoapresentacao">
                     <h2 id="textodeapresentacao">
-                        "Olá! Sou estudante de Análise e Desenvolvimento de Sistemas, com foco em desenvolvimento web
-                        usando HTML,
-                        CSS e JavaScript. Crio interfaces modernas, responsivas e voltadas para a melhor experiência do
-                        usuário. Confira meus projetos!"
+                        "Olá! Sou estudante de Análise e Desenvolvimento de Sistemas, com foco no mundo web. Crio interfaces modernas, responsivas e voltadas para proporcionar a melhor experiência ao usuário. Confira meus projetos!"
                     </h2>
                     <div id="divcontato">
                         <a id="entraremcontato" href="https://wa.me/5581985169176">Entrar em contato</a>
@@ -55,7 +52,47 @@
                 <img id="Minhafoto" src="img/lucasfixa.webp" alt="Foto do Lucas Emanuel">
             </div>
         </section>
-        <section class="pag2">
+        <!-- Seção de Skills -->
+        <section id="skills" aria-labelledby="titulo-skills">
+            <h2 id="titulo-skills">Principais Tecnologias</h2>
+            <p class="skills-desc">Domínio das principais ferramentas e frameworks do mercado para desenvolvimento web moderno e responsivo.</p>
+            <ul class="skills-list">
+                <li>
+                    <i class="fab fa-html5"></i>
+                    <span>HTML5</span>
+                </li>
+                <li>
+                    <i class="fab fa-css3-alt"></i>
+                    <span>CSS3</span>
+                </li>
+                <li>
+                    <i class="fab fa-js"></i>
+                    <span>JavaScript</span>
+                </li>
+                <li>
+                    <i class="fab fa-git-alt"></i>
+                    <span>Git</span>
+                </li>
+                <li>
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </li>
+                <li>
+                    <i class="fab fa-react"></i>
+                    <span>React</span>
+                </li>
+                <li>
+                    <img src="img/tailwindcss-icon.svg" alt="Tailwind CSS">
+                    <span>Tailwind CSS</span>
+                </li>
+                <li>
+                    <img class="nextjs" src="img/nextdotjs.svg" alt="Next.js">
+                    <span>Next.js</span>
+                </li>
+            </ul>
+        </section>
+        <!-- Fim da seção de Skills -->
+        <section class="pag2" >
             <div class="quadrado">
                 <div class="carrosel-container">
                     <button class="btn prev" id="btnPrev">‹</button>

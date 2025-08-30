@@ -87,6 +87,26 @@ carrosel.addEventListener('mouseout', startAutoSlide);
 // Inicia o carrossel automático
 startAutoSlide();
 
+// Scroll suave para links internos com compensação do menu fixo
+const linksInternos = document.querySelectorAll('a[href^="#"]');
+linksInternos.forEach(link => {
+  link.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href.length > 1 && document.querySelector(href)) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      const header = document.querySelector('header');
+      const headerOffset = header ? header.offsetHeight : 0;
+      const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerOffset - 10; // 10px extra de margem
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
 
 
 
