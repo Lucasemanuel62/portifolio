@@ -1,11 +1,29 @@
-
 // Menu toggle
 const toggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('nav');
 
 if (toggle && nav) {
   toggle.addEventListener('click', () => {
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', !isExpanded);
     nav.classList.toggle('active');
+  });
+
+  // Fechar menu ao clicar em um link
+  const menuLinks = nav.querySelectorAll('a');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Fechar menu ao pressionar ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('active')) {
+      nav.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
   });
 }
 
