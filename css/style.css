@@ -26,9 +26,11 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  padding: 10px;
+  align-items: center;
+  padding: 8px 40px;
   background-color: #010B38;
-  height: 100%;
+  height: 60px;
+  gap: 60px;
 }
 
 .limenu{
@@ -63,7 +65,13 @@ main {
   width: 96%;
   align-items: center;
   height: 100%;
-  gap: 10px;
+  gap: clamp(20px, 4vw, 56px);
+}
+
+@media (max-width: 700px) {
+  #textoefotopag1 {
+    gap: 20px;
+  }
 }
 
 #divtextoapresentacao {
@@ -77,13 +85,16 @@ main {
 
 #textodeapresentacao {
   text-align: justify;
-  font-size: 1.5em;
-
+  font-size: clamp(1.1em, 2.5vw, 1.4em);
+  line-height: 1.6;
+  font-weight: 500;
 }
 
 #divlogo {
-  font-size: clamp(22px, 1.6vw, 60px);
+  font-size: clamp(14px, 1vw, 18px);
   font-family: "Ranchers", sans-serif;
+  max-width: 250px;
+  flex-shrink: 0;
 }
 
 #logo {
@@ -109,20 +120,22 @@ main {
 
 .botao {
   /*class atribuida a todos botões da barra de navegação*/
-  font-size: clamp(20px, 1.2vw, 50px);
-  padding: 1px 4px;
+  font-size: clamp(14px, 1vw, 16px);
+  padding: 6px 12px;
   border: 2px solid #f5f2f7;
   border-radius: 8px;
   text-decoration: none;
   color: #ffffff;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .botaonav {
   display: flex;
   /* ajusta a distancia entre os botões da barra de navegação*/
-  gap: 30px;
+  gap: 15px;
   /* ajusta a distancia entre os botões da barra de navegação*/
+  align-items: center;
 }
 
 .botao:hover {
@@ -132,9 +145,11 @@ main {
 }
 
 #Minhafoto {
-  max-width: 600px;
+  max-width: 500px;
   width: 100%;
   height: auto;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
   /* Mantém proporção */
 }
 
@@ -143,24 +158,31 @@ main {
   border-radius: 7px;
   padding-top: 20px;
   text-align: center;
+  align-self: flex-start;
+  margin-top: 18px;
+}
 
-
+@media (max-width: 700px) {
+  #divcontato {
+    align-self: center;
+    margin-top: 16px;
+  }
 }
 
 #entraremcontato {
   text-decoration: none;
-  border-radius: 15px;
+  border-radius: 12px;
   background: linear-gradient(135deg, #132575 0%, #3b0c6a 100%);
   color: rgb(255, 255, 255);
   justify-content: center;
   align-items: center;
-  font-size: 1.5em;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
   font-weight: 600;
-  padding: 15px 30px;
+  padding: clamp(10px, 1.6vw, 14px) clamp(18px, 3vw, 24px);
   border: none;
   transition: all 0.3s ease;
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-  display: inline-block;
+  display: inline-flex;
 }
 
 #entraremcontato:hover {
@@ -389,21 +411,26 @@ main {
 }
 
 #titulotela3 {
-  font-size: 3.5em;
+  font-size: clamp(2.5em, 5vw, 3.5em);
   font-family: Rubik, sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   padding-top: 10px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 #textotela3 {
-  max-width: none;
-  max-height: none;
+  max-width: 600px;
   margin-bottom: 1rem;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.5rem;
-  overflow: hidden;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.6;
+  color: #666;
+  text-align: center;
 }
 
 #divbotaotela3 {
@@ -412,20 +439,27 @@ main {
 }
 
 #botaotela3 {
-  background-color: #f831b6;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #fff;
-  border-radius: 4rem;
+  border-radius: 25px;
   flex: none;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
-  padding: 1rem 1.5rem;
-  font-size: .95rem;
-  font-weight: 700;
-  line-height: .8rem;
+  border: none;
+  padding: 12px 24px;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  font-weight: 600;
+  line-height: 1.2;
   text-decoration: none;
-  transition: background-color .3s;
-  display: flex;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+#botaotela3:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
 }
 
 #pag3 {
@@ -452,26 +486,64 @@ main {
 .AB {
   max-width: 650px;
   object-fit: cover;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
-#um:hover,
-#dois:hover,
-#tres:hover,
-#quatro:hover {
-  transition: transform 0.6s;
-  transform: scale(1.03);
-
-  opacity: .90;
+.AB:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 }
 
-#fotopsicoacess {
+.project-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  color: white;
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.AB:hover .project-overlay {
+  transform: translateY(0);
+}
+
+.project-overlay h3 {
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.project-overlay p {
+  font-size: 0.9em;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.tech-stack {
+  font-size: 0.8em;
+  color: #61dafb;
+  font-weight: 600;
+}
+
+#fotopsicoacess, #fotoilustracao {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
 }
 
-#fotoilustracao {
-  width: 100%;
-  height: 100%;
+.AB:hover #fotopsicoacess,
+.AB:hover #fotoilustracao {
+  transform: scale(1.05);
 }
 
 footer {
@@ -614,6 +686,22 @@ footer {
     min-width: 70px;
     padding: 12px 8px 8px 8px;
   }
+  
+  .project-overlay {
+    padding: 15px;
+  }
+  
+  .project-overlay h3 {
+    font-size: 1em;
+  }
+  
+  .project-overlay p {
+    font-size: 0.8em;
+  }
+  
+  .tech-stack {
+    font-size: 0.7em;
+  }
 }
 
 
@@ -621,9 +709,26 @@ footer {
 @media (max-width: 700px) {
 
   .Bar {
-    justify-content: space-around;
-    padding: 0 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 20px;
     position: relative;
+    height: 50px;
+    gap: 30px;
+  }
+
+  #divlogo {
+    font-size: clamp(12px, 0.8vw, 14px);
+    max-width: 150px;
+  }
+
+  .botaonav {
+    gap: 8px;
+  }
+
+  .botao {
+    font-size: clamp(12px, 0.8vw, 14px);
+    padding: 4px 8px;
   }
 
   #textoefotopag1 {
@@ -636,12 +741,15 @@ footer {
   }
 
   #textodeapresentacao {
-    font-size: 1.2em;
+    font-size: clamp(1em, 2vw, 1.2em);
+    line-height: 1.5;
   }
 
-  #Minhafoto {
-    width: 90%;
-  }
+#Minhafoto {
+  width: 90%;
+  max-width: 350px;
+  border-radius: 15px;
+}
 
   .NavBar {
     display: flex;
@@ -785,11 +893,16 @@ footer {
   #textoefotopag1 {}
 
   .pag1 {height: 50vh;}
-  #textodeapresentacao {font-size: 1em;}
+  #textodeapresentacao {
+    font-size: clamp(0.9em, 1.8vw, 1em);
+    line-height: 1.5;
+  }
 
   #Minhafoto {
-    max-width: 380px;
+    max-width: 350px;
     height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   }
 
   #divtexto {
@@ -821,5 +934,38 @@ footer {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+}
+
+/* Animações suaves */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Melhorias de acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus states para acessibilidade */
+.botao:focus,
+#entraremcontato:focus,
+#botaotela3:focus {
+  outline: 2px solid #61dafb;
+  outline-offset: 2px;
 }
 
