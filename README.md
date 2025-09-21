@@ -1,4 +1,4 @@
-# 🚀 Portfólio Lucas Emanuel
+Portfólio Lucas Emanuel
 
 <div align="center">
   <img src="img/lucasfixa.webp" alt="Lucas Emanuel" width="200" style="border-radius: 50%;">
@@ -259,7 +259,3 @@ Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) par
 
 ---
 
-<div align="center">
-  <p>Feito com ❤️ por <strong>Lucas Emanuel</strong></p>
-  <p>⭐ Se gostou do projeto, deixe uma estrela!</p>
-</div>
