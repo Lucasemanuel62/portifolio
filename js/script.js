@@ -26,6 +26,8 @@ if (toggle && nav) {
     overlay.style.display = 'block';
     overlay.style.opacity = '1';
     toggle.setAttribute('aria-expanded', 'true');
+    // bloquear scroll do corpo
+    document.body.style.overflow = 'hidden';
     // Foco no primeiro link
     const firstLink = nav.querySelector('a');
     if (firstLink) firstLink.focus();
@@ -36,6 +38,8 @@ if (toggle && nav) {
     toggle.classList.remove('active');
     overlay.style.opacity = '0';
     toggle.setAttribute('aria-expanded', 'false');
+    // desbloquear scroll do corpo
+    document.body.style.overflow = '';
     setTimeout(() => {
       if (!nav.classList.contains('active')) overlay.style.display = 'none';
     }, 200);

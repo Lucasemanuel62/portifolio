@@ -571,7 +571,7 @@ main {
   font-weight: 600;
 }
 
-#fotopsicoacess, #fotoilustracao {
+.foto-projeto {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -579,8 +579,7 @@ main {
   transition: transform 0.3s ease;
 }
 
-.AB:hover #fotopsicoacess,
-.AB:hover #fotoilustracao {
+.AB:hover .foto-projeto {
   transform: scale(1.05);
 }
 
