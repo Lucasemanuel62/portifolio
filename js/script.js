@@ -3,28 +3,70 @@ const toggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('nav');
 
 if (toggle && nav) {
+  // Cria overlay (só uma vez)
+  let overlay = document.getElementById('nav-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'nav-overlay';
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.background = 'rgba(0,0,0,0.5)';
+    overlay.style.zIndex = '9';
+    overlay.style.display = 'none';
+    overlay.style.transition = 'opacity 0.2s';
+    document.body.appendChild(overlay);
+  }
+
+  function openMenu() {
+    nav.classList.add('active');
+    toggle.classList.add('active');
+    overlay.style.display = 'block';
+    overlay.style.opacity = '1';
+    toggle.setAttribute('aria-expanded', 'true');
+    // Foco no primeiro link
+    const firstLink = nav.querySelector('a');
+    if (firstLink) firstLink.focus();
+  }
+
+  function closeMenu() {
+    nav.classList.remove('active');
+    toggle.classList.remove('active');
+    overlay.style.opacity = '0';
+    toggle.setAttribute('aria-expanded', 'false');
+    setTimeout(() => {
+      if (!nav.classList.contains('active')) overlay.style.display = 'none';
+    }, 200);
+  }
+
   toggle.addEventListener('click', () => {
-    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', !isExpanded);
-    nav.classList.toggle('active');
+    const isOpen = nav.classList.contains('active');
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
   // Fechar menu ao clicar em um link
   const menuLinks = nav.querySelectorAll('a');
   menuLinks.forEach(link => {
     link.addEventListener('click', () => {
-      nav.classList.remove('active');
-      toggle.setAttribute('aria-expanded', 'false');
+      closeMenu();
     });
   });
 
   // Fechar menu ao pressionar ESC
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && nav.classList.contains('active')) {
-      nav.classList.remove('active');
-      toggle.setAttribute('aria-expanded', 'false');
+      closeMenu();
     }
   });
+
+  // Fechar menu ao clicar no overlay
+  overlay.addEventListener('click', closeMenu);
 }
 
 const carrosel = document.getElementById("carrosel");
