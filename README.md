@@ -32,7 +32,6 @@ Este é o portfólio pessoal de **Lucas Emanuel**, estudante de Análise e Desen
 - **HTML5** - Estrutura semântica
 - **CSS3** - Estilização avançada com Flexbox e Grid
 - **JavaScript** - Interatividade e funcionalidades
-- **TypeScript** - Tipagem estática (em desenvolvimento)
 
 ### Frameworks & Bibliotecas
 - **React** - Desenvolvimento de componentes
@@ -232,13 +231,6 @@ O CSS foi dividido em arquivos especializados para facilitar manutenção:
 - [ ] **Contact Form**: Formulário de contato
 - [ ] **Analytics**: Métricas de visitantes
 - [ ] **PWA**: Aplicativo web progressivo
-
-### 🔄 Melhorias Técnicas
-- [ ] **TypeScript**: Migração completa
-- [ ] **React**: Refatoração para componentes
-- [ ] **Tailwind**: Implementação completa
-- [ ] **Testing**: Testes automatizados
-- [ ] **CI/CD**: Pipeline de deploy
 
 ---
 
