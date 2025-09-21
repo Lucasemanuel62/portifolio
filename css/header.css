@@ -1,0 +1,139 @@
+/* Header e Navegação */
+header {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.Bar {
+  /*class referente a toda a barra de navegação*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(14, 13, 13, 0.2);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 40px;
+  background-color: #010B38;
+  height: 60px;
+  gap: 60px;
+}
+
+.limenu{
+  list-style: none;
+}
+
+.NavBar {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo */
+#divlogo {
+  font-size: clamp(14px, 1vw, 18px);
+  font-family: "Ranchers", sans-serif;
+  max-width: 250px;
+  flex-shrink: 0;
+}
+
+#logo {
+  background: linear-gradient(135deg, #f99810 0%, #ff6b6b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  text-shadow: 0 2px 10px rgba(249, 152, 16, 0.3);
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+#logo:hover {
+  background: linear-gradient(135deg, #ff6b6b 0%, #f99810 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 20px rgba(249, 152, 16, 0.5);
+  transform: scale(1.05);
+}
+
+/* Botões da navegação */
+.botao {
+  /*class atribuida a todos botões da barra de navegação*/
+  font-size: clamp(14px, 1vw, 16px);
+  padding: 6px 12px;
+  border: 2px solid #f5f2f7;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.botaonav {
+  display: flex;
+  /* ajusta a distancia entre os botões da barra de navegação*/
+  gap: 15px;
+  /* ajusta a distancia entre os botões da barra de navegação*/
+  align-items: center;
+}
+
+.botao:hover {
+  background-color: #250dad;
+  color: white;
+  box-shadow: 0 0 10px rgba(40, 13, 173, 0.5);
+}
+
+/* Estilização do botão hamburguer moderno */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 21;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(135deg, #f99810, #ff6b6b);
+  border-radius: 3px;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform-origin: center;
+}
+
+/* Animação do hambúrguer para X */
+.menu-toggle.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.menu-toggle.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Hover effect no botão */
+.menu-toggle:hover .hamburger-line {
+  background: linear-gradient(135deg, #ff6b6b, #f99810);
+  transform: scale(1.1);
+}
+
+.menu-toggle.active:hover .hamburger-line {
+  transform: scale(1);
+}

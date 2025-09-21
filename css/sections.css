@@ -1,0 +1,331 @@
+/* Seções principais */
+main {
+  max-width: 2400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Página inicial */
+.pag1 {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px;
+}
+
+#textoefotopag1 {
+  display: flex;
+  justify-content: space-around;
+  width: 96%;
+  align-items: center;
+  height: 100%;
+  gap: clamp(20px, 4vw, 56px);
+}
+
+#divtextoapresentacao {
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+#textodeapresentacao {
+  text-align: justify;
+  font-size: clamp(1.1em, 2.5vw, 1.4em);
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+#Minhafoto {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+  /* Mantém proporção */
+}
+
+#divcontato {
+  border: none;
+  border-radius: 7px;
+  padding-top: 20px;
+  text-align: center;
+  align-self: flex-start;
+  margin-top: 18px;
+}
+
+#entraremcontato {
+  text-decoration: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #132575 0%, #3b0c6a 100%);
+  color: rgb(255, 255, 255);
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 600;
+  padding: clamp(10px, 1.6vw, 14px) clamp(18px, 3vw, 24px);
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  display: inline-flex;
+}
+
+#entraremcontato:hover {
+  background: linear-gradient(135deg, #7528c1 0%, #06196b 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
+}
+
+/* Página 2 - Carrossel */
+.pag2 {
+  width: 100%;
+  justify-content: space-around;
+  position: relative;
+  height: 100%;
+  flex-wrap: wrap;
+  justify-items: center;
+  /*alinha o quadrado na horizontal*/
+  display: flex;
+  align-items: center;
+  /* alinha os itens na vertical */
+  background-color: #01082b;
+}
+
+.quadrado {
+  width: 50%;
+  border-radius: 10px;
+  height: 50%;
+  display: flex;
+}
+
+.carrosel {
+  width: 100%;
+  height: 100%;
+}
+
+.divlinks {
+  width: 50%;
+  height: 100%;
+  background-image: url('../img/fundolink.jpg');
+  background-position: center;
+  overflow: hidden;
+  background-size: cover;
+  border-radius: 5px;
+  align-items: center;/*alinha horizintalmente*/
+  justify-content: center;/*alinha verticalmente*/
+  display: flex;
+}
+
+.conteudo {
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  background-color: #00000033;
+  /* preto com 50% de transparência */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#divtextolink {
+  height: 15%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#divsites {
+  height: 100%;
+  width: 100%;
+}
+
+#divpsicoacess {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carrosel-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carrosel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  width: 88%;
+  height: 60%;
+  scrollbar-width: none;
+  position: relative;
+  border-radius: 10px;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  transform: translateY(0px);
+}
+
+.carrosel:hover {
+  transform: translateY(-3px);
+  /* eleva um pouquinho */
+  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.carrosel::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.slide:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.slide1 {
+  flex-direction: column;
+  text-align: center;
+}
+
+.slide2 {
+  flex-direction: column;
+  text-align: center;
+}
+
+.slide3 {
+  flex-direction: column;
+  text-align: center;
+}
+
+.btn {
+  position: absolute;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.prev {
+  left: 1px;
+}
+
+.next {
+  right: 1px;
+}
+
+.tituloslide {
+  font-size: 3.2vw;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.listaslide {
+  font-size: 1.4vw;
+  color: #ffffff;
+  display: grid;
+  flex-direction: column;
+  gap: 15px;
+  text-align: justify;
+  width: 80%;
+}
+
+/* Página 3 - Projetos */
+#tela3 {
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+}
+
+#titulotela3 {
+  font-size: clamp(2.5em, 5vw, 3.5em);
+  font-family: Rubik, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding-top: 10px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+#textotela3 {
+  max-width: 600px;
+  margin-bottom: 1rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.6;
+  color: #666;
+  text-align: center;
+}
+
+#divbotaotela3 {
+  max-width: 280px;
+  padding-bottom: 10px;
+}
+
+#botaotela3 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border-radius: 25px;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 12px 24px;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+#botaotela3:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
+}
