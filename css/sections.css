@@ -110,20 +110,28 @@ main {
 .divlinks {
   width: 50%;
   height: 100%;
-  background-image: url('../img/fundolink.jpg');
-  background-position: center;
   overflow: hidden;
-  background-size: cover;
   border-radius: 5px;
   align-items: center;/*alinha horizintalmente*/
   justify-content: center;/*alinha verticalmente*/
   display: flex;
+  position: relative;
+  background-color: #01082b;
+}
+
+.videoagua {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .conteudo {
+  position: absolute;
+  inset: 0;
   text-align: center;
   width: 100%;
-  height: 80vh;
+  height: 100%;
   background-color: #00000033;
   /* preto com 50% de transparência */
   border-radius: 10px;

@@ -28,9 +28,6 @@ if (toggle && nav) {
     toggle.setAttribute('aria-expanded', 'true');
     // bloquear scroll do corpo
     document.body.style.overflow = 'hidden';
-    // Foco no primeiro link
-    const firstLink = nav.querySelector('a');
-    if (firstLink) firstLink.focus();
   }
 
   function closeMenu() {
@@ -153,6 +150,46 @@ linksInternos.forEach(link => {
   });
 });
 
+const pingPongVideos = document.querySelectorAll('[data-pingpong-video]');
+pingPongVideos.forEach(video => {
+  let isReversing = false;
+  let lastFrameTime = null;
+  const edgeOffset = 0.12;
 
+  function playForward() {
+    isReversing = false;
+    lastFrameTime = null;
+    video.playbackRate = 1;
+    video.play().catch(() => {});
+  }
 
+  function startBackward(frameTime) {
+    isReversing = true;
+    lastFrameTime = frameTime;
+    video.pause();
+    video.currentTime = Math.min(video.currentTime, video.duration - edgeOffset);
+  }
 
+  function tick(frameTime) {
+    if (Number.isFinite(video.duration) && video.duration > 0) {
+      if (!isReversing && !video.paused && video.currentTime >= video.duration - edgeOffset) {
+        startBackward(frameTime);
+      }
+
+      if (isReversing) {
+        const elapsedSeconds = lastFrameTime ? (frameTime - lastFrameTime) / 1000 : 0;
+        lastFrameTime = frameTime;
+        video.currentTime = Math.max(edgeOffset, video.currentTime - elapsedSeconds);
+
+        if (video.currentTime <= edgeOffset) {
+          video.currentTime = edgeOffset;
+          playForward();
+        }
+      }
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+});
