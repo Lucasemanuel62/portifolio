@@ -6,13 +6,45 @@
   scroll-behavior: smooth;
 }
 
+:root {
+  --ink: #071022;
+  --muted: #586174;
+  --paper: #f7f4ec;
+  --paper-soft: #fffaf0;
+  --navy: #020a2e;
+  --navy-2: #071856;
+  --orange: #ff8a1f;
+  --coral: #ff5d57;
+  --aqua: #4ee3d3;
+  --line: rgba(7, 16, 34, 0.12);
+  --shadow: 0 24px 70px rgba(7, 16, 34, 0.16);
+}
+
 body {
   font-family: "Poppins", sans-serif;
+  color: var(--ink);
+  background:
+    linear-gradient(90deg, rgba(7, 16, 34, 0.035) 1px, transparent 1px),
+    linear-gradient(rgba(7, 16, 34, 0.035) 1px, transparent 1px),
+    var(--paper);
+  background-size: 44px 44px;
+  overflow-x: hidden;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 138, 31, 0.14), transparent 28%),
+    radial-gradient(circle at 90% 12%, rgba(78, 227, 211, 0.12), transparent 24%);
 }
 
 /* Animações suaves */
@@ -43,7 +75,8 @@ html {
 /* Focus states para acessibilidade */
 .botao:focus,
 #entraremcontato:focus,
-#botaotela3:focus {
+#botaotela3:focus,
+.hero-secondary:focus {
   outline: 2px solid #61dafb;
   outline-offset: 2px;
 }

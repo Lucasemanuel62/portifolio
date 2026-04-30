@@ -150,46 +150,110 @@ linksInternos.forEach(link => {
   });
 });
 
-const pingPongVideos = document.querySelectorAll('[data-pingpong-video]');
-pingPongVideos.forEach(video => {
-  let isReversing = false;
-  let lastFrameTime = null;
-  const edgeOffset = 0.12;
+// --- Ping-pong video loop suave (vai e volta infinito) ---
+(function () {
+  const video = document.querySelector('.videoagua');
+  if (!video) return;
 
-  function playForward() {
-    isReversing = false;
-    lastFrameTime = null;
-    video.playbackRate = 1;
-    video.play().catch(() => {});
-  }
+  // Zona de desaceleração/aceleração (segundos)
+  const EASE_ZONE = 2.0;
+  // Ponto onde inverte a direção (segundos a partir do fim/início)
+  const TURN_POINT = 0.3;
+  // playbackRate mínimo na desaceleração (antes de parar)
+  const MIN_RATE = 0.07;
 
-  function startBackward(frameTime) {
-    isReversing = true;
-    lastFrameTime = frameTime;
-    video.pause();
-    video.currentTime = Math.min(video.currentTime, video.duration - edgeOffset);
-  }
+  let phase = 'forward'; // 'forward' | 'decelerating' | 'reverse' | 'accelerating'
+  let rafId = null;
+  let lastTimestamp = null;
 
-  function tick(frameTime) {
-    if (Number.isFinite(video.duration) && video.duration > 0) {
-      if (!isReversing && !video.paused && video.currentTime >= video.duration - edgeOffset) {
-        startBackward(frameTime);
-      }
+  // --- Fase REVERSE: rebobina frame a frame com easing ---
+  function reverseStep(timestamp) {
+    if (!lastTimestamp) lastTimestamp = timestamp;
+    const delta = (timestamp - lastTimestamp) / 1000;
+    lastTimestamp = timestamp;
 
-      if (isReversing) {
-        const elapsedSeconds = lastFrameTime ? (frameTime - lastFrameTime) / 1000 : 0;
-        lastFrameTime = frameTime;
-        video.currentTime = Math.max(edgeOffset, video.currentTime - elapsedSeconds);
+    const duration = video.duration;
+    const current = video.currentTime;
 
-        if (video.currentTime <= edgeOffset) {
-          video.currentTime = edgeOffset;
-          playForward();
-        }
-      }
+    // Progresso do reverse: 0 = começou a voltar, 1 = chegou no início
+    const reverseTotal = duration - TURN_POINT - TURN_POINT;
+    const reversed = (duration - TURN_POINT) - current;
+    const progress = Math.min(1, reversed / reverseTotal);
+
+    // Easing suave: desacelera nas pontas, rápido no meio (curva seno)
+    const speed = 0.15 + 0.85 * Math.sin(progress * Math.PI);
+
+    video.currentTime = Math.max(0, current - delta * speed);
+
+    // Quando chega perto do início, transição suave pra forward
+    if (video.currentTime <= TURN_POINT + EASE_ZONE) {
+      phase = 'accelerating';
+      lastTimestamp = null;
+      cancelAnimationFrame(rafId);
+      rafId = null;
+      video.playbackRate = MIN_RATE;
+      video.play();
+      rafId = requestAnimationFrame(accelerateStep);
+      return;
     }
 
-    requestAnimationFrame(tick);
+    rafId = requestAnimationFrame(reverseStep);
   }
 
-  requestAnimationFrame(tick);
-});
+  // --- Fase ACCELERATING: aumenta playbackRate gradualmente ---
+  function accelerateStep(timestamp) {
+    if (!lastTimestamp) lastTimestamp = timestamp;
+    lastTimestamp = timestamp;
+
+    const current = video.currentTime;
+    // Quanto já andou desde o ponto de virada
+    const traveled = current - TURN_POINT;
+    // Progresso de 0 a 1 na zona de aceleração
+    const progress = Math.min(1, traveled / EASE_ZONE);
+    // Easing ease-in: começa devagar, acelera
+    const eased = progress * progress;
+    const rate = MIN_RATE + (1.0 - MIN_RATE) * eased;
+
+    video.playbackRate = Math.min(1.0, Math.max(MIN_RATE, rate));
+
+    if (progress >= 1) {
+      video.playbackRate = 1.0;
+      phase = 'forward';
+      lastTimestamp = null;
+      cancelAnimationFrame(rafId);
+      rafId = null;
+      return;
+    }
+
+    rafId = requestAnimationFrame(accelerateStep);
+  }
+
+  // --- Monitora o forward play ---
+  video.addEventListener('timeupdate', function () {
+    if (!video.duration) return;
+    const remaining = video.duration - video.currentTime;
+
+    // Fase FORWARD: quando entra na zona de desaceleração
+    if (phase === 'forward' && remaining <= EASE_ZONE) {
+      phase = 'decelerating';
+    }
+
+    // Fase DECELERATING: reduz playbackRate gradualmente
+    if (phase === 'decelerating') {
+      const progress = Math.max(0, (remaining - TURN_POINT) / (EASE_ZONE - TURN_POINT));
+      // Easing ease-out: desacelera suavemente
+      const eased = progress * progress;
+      const rate = MIN_RATE + (1.0 - MIN_RATE) * eased;
+      video.playbackRate = Math.max(MIN_RATE, rate);
+
+      // Quando chega no ponto de virada, começa o reverse
+      if (remaining <= TURN_POINT) {
+        video.pause();
+        video.playbackRate = 1.0;
+        phase = 'reverse';
+        lastTimestamp = null;
+        rafId = requestAnimationFrame(reverseStep);
+      }
+    }
+  });
+})();

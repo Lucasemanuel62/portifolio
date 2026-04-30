@@ -112,14 +112,13 @@ main {
   height: 100%;
   overflow: hidden;
   border-radius: 5px;
-  align-items: center;/*alinha horizintalmente*/
-  justify-content: center;/*alinha verticalmente*/
-  display: flex;
+  display: grid;
   position: relative;
   background-color: #01082b;
 }
 
 .videoagua {
+  grid-area: 1 / 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -127,8 +126,8 @@ main {
 }
 
 .conteudo {
-  position: absolute;
-  inset: 0;
+  grid-area: 1 / 1;
+  z-index: 3;
   text-align: center;
   width: 100%;
   height: 100%;
@@ -338,4 +337,263 @@ main {
   background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
   transform: translateY(-3px);
   box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
+}
+
+/* Refinamento visual da primeira dobra */
+.pag1 {
+  min-height: 100vh;
+  height: auto;
+  padding: 116px clamp(18px, 5vw, 72px) 54px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pag1::after {
+  content: "";
+  position: absolute;
+  width: min(46vw, 620px);
+  aspect-ratio: 1;
+  right: -12vw;
+  top: 100px;
+  border: 1px solid rgba(7, 16, 34, 0.09);
+  border-radius: 48% 52% 62% 38%;
+  transform: rotate(-12deg);
+  z-index: -1;
+}
+
+#textoefotopag1 {
+  width: min(1180px, 100%);
+  height: auto;
+  justify-content: space-between;
+}
+
+#divtextoapresentacao {
+  align-items: flex-start;
+  width: min(54%, 650px);
+  max-width: 650px;
+}
+
+.hero-kicker {
+  color: var(--navy-2);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-family: "Fraunces", serif;
+  font-size: clamp(2.15rem, 5.1vw, 4.65rem);
+  line-height: 1;
+  max-width: 760px;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+
+#textodeapresentacao {
+  text-align: left;
+  font-size: clamp(1rem, 1.8vw, 1.24rem);
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 620px;
+}
+
+.hero-photo-frame {
+  width: min(40vw, 500px);
+  min-width: 320px;
+  aspect-ratio: 0.96;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.hero-photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border: 1px solid rgba(255, 138, 31, 0.45);
+  border-radius: 53% 47% 40% 60%;
+  transform: rotate(7deg);
+}
+
+.hero-photo-frame::after {
+  content: "";
+  position: absolute;
+  inset: auto 12% -16px 12%;
+  height: 22px;
+  border-radius: 999px;
+  background: rgba(7, 16, 34, 0.18);
+  filter: blur(18px);
+}
+
+#Minhafoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 53% 47% 40% 60%;
+  box-shadow: var(--shadow);
+  filter: saturate(1.1) contrast(1.05);
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.hero-photo-frame:hover #Minhafoto {
+  transform: rotate(-1.5deg) scale(1.015);
+}
+
+.hero-badge {
+  position: absolute;
+  left: -16px;
+  bottom: 42px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--navy), var(--navy-2));
+  box-shadow: 0 18px 34px rgba(7, 16, 34, 0.22);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+#divcontato {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 0;
+  padding-top: 24px;
+}
+
+#entraremcontato {
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--navy-2) 0%, var(--navy) 100%);
+  box-shadow: 0 14px 30px rgba(7, 24, 86, 0.22);
+}
+
+#entraremcontato:hover {
+  background: linear-gradient(135deg, var(--orange) 0%, var(--coral) 100%);
+  box-shadow: 0 18px 38px rgba(255, 138, 31, 0.28);
+}
+
+.hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(10px, 1.6vw, 14px) clamp(18px, 3vw, 24px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.45);
+  transition: all 0.3s ease;
+}
+
+.hero-secondary:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 138, 31, 0.55);
+  box-shadow: 0 14px 30px rgba(7, 16, 34, 0.1);
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.hero-stats span {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.46);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.hero-stats strong {
+  color: var(--ink);
+}
+
+.pag2 {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 138, 31, 0.15), transparent 30%),
+    linear-gradient(135deg, var(--navy), #01082b);
+  padding: clamp(36px, 6vw, 76px) clamp(18px, 4vw, 60px);
+  gap: 24px;
+}
+
+.quadrado,
+.divlinks {
+  width: min(48%, 680px);
+}
+
+.divlinks {
+  min-height: 430px;
+  border-radius: 18px;
+}
+
+.carrosel {
+  width: 92%;
+  height: auto;
+  min-height: 520px;
+  align-items: stretch;
+}
+
+.slide {
+  border-radius: 18px;
+  margin: 16px;
+  min-height: 480px;
+  justify-content: flex-start;
+  padding: clamp(40px, 4vw, 56px) clamp(24px, 4vw, 46px);
+  box-sizing: border-box;
+}
+
+.btn {
+  background: rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  backdrop-filter: blur(12px);
+}
+
+.tituloslide {
+  font-size: clamp(1.85rem, 2.65vw, 2.65rem);
+  line-height: 1.16;
+  margin-bottom: 28px;
+  max-width: 92%;
+  background: linear-gradient(135deg, var(--orange), var(--aqua));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.listaslide {
+  width: min(86%, 470px);
+  font-size: clamp(1rem, 1.12vw, 1.14rem);
+  line-height: 1.5;
+  gap: 13px;
+  text-align: left;
+}
+
+#tela3 {
+  background: var(--paper-soft);
+  min-height: 42vh;
+}
+
+#titulotela3 {
+  font-family: "Fraunces", serif;
+  text-transform: none;
+  letter-spacing: 0;
+  background: linear-gradient(135deg, var(--navy), var(--orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+#textotela3 {
+  color: var(--muted);
+}
+
+#botaotela3 {
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--orange), var(--coral));
+  box-shadow: 0 14px 30px rgba(255, 138, 31, 0.25);
 }

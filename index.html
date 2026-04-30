@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
         rel="stylesheet">
     <link rel="shortcut icon" href="img/icone.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -35,7 +35,7 @@
     <header>
         <nav id="topo" class="Bar" role="navigation" aria-label="Navegação principal">
             <div id="divlogo">
-                <h1 id="logo">Lucas Emanuel</h1>
+                <a id="logo" href="#pag1" aria-label="Lucas Emanuel - voltar ao início">Lucas Emanuel</a>
             </div>
             <!-- Botão hambúrguer moderno -->
             <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav">
@@ -77,14 +77,25 @@
         <section class="pag1" id="pag1" aria-labelledby="textodeapresentacao">
             <div id="textoefotopag1">
                 <div id="divtextoapresentacao">
+                    <p class="hero-kicker">Front-end developer</p>
+                    <h1 class="hero-title">Sites com visual forte, responsividade e foco em conversão.</h1>
                     <h2 id="textodeapresentacao">
-                        Olá! Sou Lucas Emanuel, estudante de Análise e Desenvolvimento de Sistemas, com foco no desenvolvimento web. Crio interfaces modernas, responsivas e voltadas para proporcionar a melhor experiência ao usuário. Confira meus projetos!
+                        Olá! Sou Lucas Emanuel, desenvolvedor web focado em criar interfaces modernas, responsivas e com excelente experiência para o usuário.
                     </h2>
                     <div id="divcontato">
                         <a id="entraremcontato" href="https://wa.me/5581985169176">Entrar em contato</a>
+                        <a class="hero-secondary" href="#tela3">Ver projetos</a>
+                    </div>
+                    <div class="hero-stats" aria-label="Resumo profissional">
+                        <span><strong>4+</strong> projetos publicados</span>
+                        <span><strong>React</strong> e Next.js</span>
+                        <span><strong>Mobile</strong> first</span>
                     </div>
                 </div>
-                <img id="Minhafoto" src="img/lucasfixa.webp" alt="Foto do Lucas Emanuel">
+                <div class="hero-photo-frame">
+                    <img id="Minhafoto" src="img/lucasfixa.webp" alt="Foto do Lucas Emanuel">
+                    <span class="hero-badge">Disponível para freelance</span>
+                </div>
             </div>
         </section>
         <!-- Seção de Skills -->
@@ -172,7 +183,7 @@
                 </div>
             </div>
             <div class="divlinks">
-                <video class="videoagua" autoplay muted playsinline preload="auto" data-pingpong-video aria-label="Vídeo decorativo de água">
+                <video class="videoagua" autoplay muted playsinline preload="auto" aria-label="Vídeo decorativo de água">
                     <source src="img/videoagua.mp4" type="video/mp4">
                 </video>
                 <div class="conteudo"></div>
@@ -247,7 +258,7 @@
                 </a>
             </div>
 
-            <p class="footer-info">Lucas Emanuel - Desenvolvedor Front-end Júnior disponível para projetos freelance e vagas • São Gonçalo, RJ
+            <p class="footer-info">Lucas Emanuel - Desenvolvedor Front-end Júnior disponível para projetos freelance e vagas • Limoerio, PE
             </p>
 
             <a href="#topo" class="voltar-topo">↑ Voltar ao topo</a>
