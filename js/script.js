@@ -292,3 +292,42 @@ linksInternos.forEach(link => {
     smoothScrollTo(0, 900);
   });
 })();
+
+// Capture global clicks early to detect when an overlay intercepts the click
+// and the user actually clicked on the visual area of the back-to-top link.
+document.addEventListener('click', function(e) {
+  const backToTop = document.querySelector('.voltar-topo');
+  if (!backToTop) return;
+  const rect = backToTop.getBoundingClientRect();
+  const x = e.clientX;
+  const y = e.clientY;
+
+  // If the click happened within the visible bounds of the link, trigger scroll
+  if (x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom) {
+    // prevent other handlers
+    e.preventDefault();
+    e.stopPropagation();
+
+    // close nav overlay if present
+    const overlay = document.getElementById('nav-overlay');
+    if (overlay) {
+      overlay.style.display = 'none';
+      overlay.style.pointerEvents = 'none';
+      overlay.style.opacity = '0';
+    }
+
+    // close nav if open
+    const nav = document.getElementById('nav');
+    const toggle = document.getElementById('menu-toggle');
+    if (nav) nav.classList.remove('active');
+    if (toggle) toggle.classList.remove('active');
+    document.body.style.overflow = '';
+
+    // perform smooth scroll (same easing)
+    if (typeof smoothScrollTo === 'function') {
+      try { smoothScrollTo(0, 900); } catch (err) { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+}, true);
