@@ -3,7 +3,7 @@ Portfólio Lucas Emanuel
 <div align="center">
   <img src="img/lucasfixa.webp" alt="Lucas Emanuel" width="200" style="border-radius: 50%;">
   
-  **Desenvolvedor Front-end Júnior**
+   **Desenvolvedor**
   
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lucas-emanuel-837655307/)
   [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Lucasemanuel62)
@@ -14,7 +14,7 @@ Portfólio Lucas Emanuel
 
 ## 📋 Sobre o Projeto
 
-Este é o portfólio pessoal de **Lucas Emanuel**, estudante de Análise e Desenvolvimento de Sistemas, especializado em desenvolvimento front-end. O site apresenta uma interface moderna, responsiva e otimizada para proporcionar a melhor experiência ao usuário.
+Este é o portfólio pessoal de **Lucas Emanuel**, estudante de Análise e Desenvolvimento de Sistemas, especializado em desenvolvimento. O site apresenta uma interface moderna, responsiva e otimizada para proporcionar a melhor experiência ao usuário.
 
 ### ✨ Características Principais
 
@@ -28,7 +28,7 @@ Este é o portfólio pessoal de **Lucas Emanuel**, estudante de Análise e Desen
 
 ## 🛠️ Tecnologias Utilizadas
 
-### Frontend
+### Desenvolvedor
 - **HTML5** - Estrutura semântica
 - **CSS3** - Estilização avançada com Flexbox e Grid
 - **JavaScript** - Interatividade e funcionalidades

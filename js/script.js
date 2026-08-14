@@ -135,6 +135,8 @@ const linksInternos = document.querySelectorAll('a[href^="#"]');
 linksInternos.forEach(link => {
   link.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
+    // Se for o link de voltar ao topo, deixe o handler específico gerenciar a animação
+    if (this.classList.contains('voltar-topo')) return;
     if (href.length > 1 && document.querySelector(href)) {
       e.preventDefault();
       const target = document.querySelector(href);
@@ -255,5 +257,38 @@ linksInternos.forEach(link => {
         rafId = requestAnimationFrame(reverseStep);
       }
     }
+  });
+})();
+
+// Handler explícito para o link "Voltar ao topo" — evita conflitos com overlays
+(function() {
+  const backToTop = document.querySelector('.voltar-topo');
+  if (!backToTop) return;
+
+  function smoothScrollTo(targetY, duration = 900) {
+    const startY = window.pageYOffset;
+    const diff = targetY - startY;
+    let startTime = null;
+
+    function easeInOutQuad(t) {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const time = Math.min(1, (timestamp - startTime) / duration);
+      const eased = easeInOutQuad(time);
+      window.scrollTo(0, Math.round(startY + diff * eased));
+      if (time < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  backToTop.addEventListener('click', function(e) {
+    e.preventDefault();
+    smoothScrollTo(0, 900);
   });
 })();

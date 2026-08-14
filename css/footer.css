@@ -44,6 +44,8 @@ footer {
   color: #f8fafc;
   font-size: 0.9rem;
   text-decoration: none;
+  position: relative;
+  z-index: 1100;
 }
 
 .voltar-topo:hover {
